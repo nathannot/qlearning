@@ -113,6 +113,9 @@ def random_s(data, seed=SEED):
 rand = np.array([random_s(test, seed=SEED) for _ in range(100)])
 avg = np.mean(rand, axis=0)
 
+state_size = np.prod(stock.no_buckets)
+action_size = stock.action_space.n
+q_table = np.zeros((stock.no_buckets + [action_size]))
 
 def rl(data, epsilon, min_epsilon, eps_decay, lr, gamma, seed=SEED):
     stock = StockEnv(data, 10000)
@@ -120,9 +123,7 @@ def rl(data, epsilon, min_epsilon, eps_decay, lr, gamma, seed=SEED):
     np.random.seed(seed)
     random.seed(seed)
 
-    state_size = np.prod(stock.no_buckets)
-    action_size = stock.action_space.n
-    q_table = np.zeros((stock.no_buckets + [action_size]))
+    
     state, _ = stock.reset(seed=seed)
     rewards = []
 
