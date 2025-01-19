@@ -178,9 +178,9 @@ st.write('')
 st.write('Leave default values if you do not understand what these parameters are.')
 eps = st.slider('Select epsilon value', 0.0, 1.0, 1.0, 0.01)
 min_eps = st.slider('Select minimum epsilon value', 0.0, 0.1, 0.1, 0.01)
-eps_dec = st.slider('Select epsilon decay rate', 0.0, 0.99, 0.95, 0.01)
+eps_dec = st.slider('Select epsilon decay rate', 0.0, 0.99, 0.99, 0.01)
 gam = st.slider('Select gamma value', 0.0, 1.0, 0.95, 0.01)
-learn = st.slider('Select learning rate', 0.0, 1.0, 0.1, 0.01)
+learn = st.slider('Select learning rate', 0.0, 1.0, 0.05, 0.01)
 
 rews = []
 q_tables = []
