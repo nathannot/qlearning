@@ -19,7 +19,7 @@ st.write('This app compares a random agent who chooses actions randomly, a buy a
 st.write('The agent is trained on price data from 2014-2024 and tested on data from 2024-2025.')
 st.write('')
 ticker = st.selectbox('Select from the following', ('aapl', 'tsla', 'goog', 'msft', 'nflx', 'amzn'))
-data = yf.download(ticker, '2014-01-01', '2025-01-01')[['Close']]
+data = yf.download(ticker, '2014-01-01', '2025-01-01',multi_level_index=False)[['Close']]
 train = data[:-252]
 test = data[-252:]
 
